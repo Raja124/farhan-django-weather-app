@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather APP</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+</head>
+<body>
+    <div class="container">
+        <h1 class="title"> 🌤 Weather App</h1>
+
+     <form method="get" class="search-box">
+        <input type="text" name = 'city' placeholder="'Enter your city.." required>
+
+     </form>
+
+             {% if error %}
+             <div class="error">{{error}}</div>
+             {% endif %}
+
+             {% if weather %}
+             <div class="weather-card">
+                <h2>{{weather.city}}</h2>
+                <p class="temp">{{weather.temperature}}</p>
+                <p class="desc">{{weather.description|title }}</p>
+             </div>
+             {% endif %}
+
+    </div>
+    
+</body>
+</html>
